@@ -1,6 +1,6 @@
-from . models import db
+from . import db
 
-class User(db.nodel):
+class User(db.Model):
     
     __tablename__ = 'users'
     id = db. Column(db.Integer, primary_key = True)     
