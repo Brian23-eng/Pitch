@@ -1,5 +1,5 @@
 from flask import Flask
-from config import config_options
+from config import config_options, DevConfig
 
 
 
@@ -9,6 +9,8 @@ def create_app(config_name):
     
     #app configurations
     app.config.from_object(config_options[config_name])
+    # Setting up configuration
+    app.config.from_object(DevConfig)
     
     
     #registering the main app Blueprint
