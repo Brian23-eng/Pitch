@@ -2,7 +2,7 @@ import os
 
 class Config:
     
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://brian: stephen13@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://brian:brayo13@localhost/watchlist'
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
