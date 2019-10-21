@@ -2,16 +2,20 @@ import os
 
 class Config:
     
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://brian:brayo13@localhost/pitch'
-    
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-    
-   
-    
+      
     '''
     Describes the general configurations
     
     '''
+    
+    UPLOADED_PHOTOS_DEST = 'app/static/photos'
+    
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://brian:brayo13@localhost/pitch'
+    
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    
+   
+  
     
     
 class ProdConfig(Config):

@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 from flask_bootstrap import Bootstrap
 from config import config_options, DevConfig
 
@@ -11,6 +12,7 @@ login_manager.login_view = 'auth.login'
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
+photos = UploadSet('photos', IMAGES)
 
 
 
@@ -37,5 +39,8 @@ def create_app(config_name):
     #registering the auth blueprint
     from .auth import auth as main_blueprint
     app.register_blueprint(main_blueprint, url_prefix = '/auth')
+    
+    #configure uploadset
+    configure_uploads(app,photos)
     
     return app
