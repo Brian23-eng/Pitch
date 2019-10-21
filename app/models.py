@@ -1,6 +1,8 @@
 from . import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+import jwt
+import os
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -90,7 +92,7 @@ class Comment(db.Model):
         return comments
     
     
-class Upvote(db.Model):
+class UpVote(db.Model):
     __tablename__ = 'upvotes'
     id = db.Column(db.Integer, primary_key = True)
     id_user = db.Column(db.Integer, db.ForeignKey('users.id'))
