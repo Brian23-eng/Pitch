@@ -1,5 +1,9 @@
-from . import db
+from . import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -42,9 +46,41 @@ class Pitch(db.Model):
         db.session.add(self)
         db.session.commit()
         
+    @classmethod
+    def get_pitch(cls,id):
+        pitches = Pitch.query.filter_by(id=id).all()
+        return pitches
+    
+    @classmethod
+    def get_all_pitches(cls):
+        pitches = Pitch.query.order_by('-id').all()
+        return pitches
+    
+    @classmethod
+    def get_category(cls, cat):
+        category = Pitch.query.filter_by(pitch_category = cat).order_by('-id').all()
+        
+        return category        
     
 
         
     
+class Comment(db.Model):
+    __tablename__ = 'comments'
     
+    id = db.Column(db.Integer,primary_key=True)
+    comment_content = db.Column(db.String())
+    pitch_id = db.Column(db.Integer)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id')) 
+    
+    
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+        
+    
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comment.query.filter_by(pitch_id=id).all()
+        return comments
     
