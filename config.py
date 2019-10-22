@@ -5,7 +5,9 @@ class Config:
     '''
     Describes the general configurations
     '''
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = os.urandom(32)
+    # app.config['SECRET_KEY'] = 'bEtteR23'
+    
     DATABASE_PASS = os.environ.get('DATABASE_PASS')
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')

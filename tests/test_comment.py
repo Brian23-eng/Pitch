@@ -8,13 +8,13 @@ class TestPitch(unittest.TestCase):
     def setUp(self):
         self.user_joe = User(username='joe',password='password',email='abc@defg.com')
         self.new_pitch = Pitch(pitch_content = "This is my pitch", pitch_category='Business',user=self.user_joe)
-        self.new_comment = Comment(comment_content = "This is my comment", pitch=self.new_pitch, user=self.user_joe)
+        self.new_comment = Comment(comment_content = "This is my comment", user=self.user_joe)
     
     def tearDown(self):
         db.session.delete(self)
         User.query.commit()
-        # my_user = db.session.query(User).filter(self.user.id==1).first()
-        # db.session.delete(my_user)
+        my_user = db.session.query(User).filter(self.user.id==1).first()
+        db.session.delete(my_user)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_comment,Comment))
