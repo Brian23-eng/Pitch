@@ -63,7 +63,7 @@ class Pitch(db.Model):
     
     @classmethod
     def get_all_pitches(cls):
-        pitches = Pitch.query.order_by('-id').all()
+        pitches = Pitch.query.order_by(text('-id')).all()
         return pitches
     
     @classmethod
@@ -106,7 +106,7 @@ class UpVote(db.Model):
         db.session.commit()
         
     @classmethod
-    def get_vote(cls,id):
+    def get_votes(cls,id):
         upvote = Upvote.query.filter_by(pitching_id=id).all()
         return upvote   
     

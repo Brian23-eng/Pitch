@@ -36,7 +36,7 @@ def register():
         db.session.commit()
         
         
-        return redirect(url_for('auth.html'))
+        return redirect(url_for('auth.login'))
     
     title = "New Account | One Minute Pitch"
     

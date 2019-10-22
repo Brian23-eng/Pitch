@@ -4,8 +4,8 @@
         <div class="col-md-4 picture">
             <!-- Displaying profile photo -->
             {% if user.profile_pic_path %}
-            <img src="{{url_for('static',filename = user.profile_pic_path)}}" alt="" class="img-thumbnail"> {% else %}
-            <img src="{{url_for('static',filename = 'photos/avatar2.png')}}" alt=""> {% endif %}
+            <img src="{{url_for('static',filename = user.profile_pic_path)}}" alt="" class="img-thumbnail circle"> {% else %}
+            <img src="{{url_for('static',filename = 'photos/avatar2.png')}}" alt="" class=""> {% endif %}
             <p class="user-tag"> {{user.username|capitalize}} </p>
             {% if user == current_user %}
             <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype="multipart/form-data">

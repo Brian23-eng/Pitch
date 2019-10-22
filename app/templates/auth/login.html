@@ -11,16 +11,18 @@
             {% endfor %}
 
             <!-- Login form -->
-            <div class="row">
-                <div class="col-md-12 pitch-form">
-                    <h3>Log in</h3>
-                    <h5>Fill in the form to log in</h5>
-                    <hr> {{ wtf.quick_form(login_form)}}
-                    <br>
+
+            <div class="col-md-12 pitch-form">
+                <h3 class="ho text-center">Log in</h3>
+                <h5 class="he text-center">Fill in the form to log in</h5>
+                <hr> {{ wtf.quick_form(login_form)}}
+                <br>
+                <div class="real">
                     <p>New User?<a href="{{url_for('auth.register')}}">Sign up here</a></p>
                     <p>Forgot Password?<a href="{{url_for('auth.reset_password')}}">Reset Password</a></p>
                 </div>
             </div>
+
         </div>
         <div class="col-md-3"></div>
     </div>
