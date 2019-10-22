@@ -1,6 +1,7 @@
 from . import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from sqlalchemy import text
 import jwt
 import os
 
@@ -67,7 +68,7 @@ class Pitch(db.Model):
     
     @classmethod
     def get_category(cls, cat):
-        category = Pitch.query.filter_by(pitch_category = cat).order_by('-id').all()
+        category = Pitch.query.filter_by(pitch_category = cat).order_by(text('-id')).all()
         
         return category        
     
