@@ -1,5 +1,5 @@
 # [Pitch](https://pitching.herokuapp.com/)
-## Pitch It is a web application that is meant for users to add pitches on 7 different categories
+## Pitch  is a web application that is meant for users to add pitches on 7 different categories
 ### Oct 23rd, 2019
 #### By **[Brian Omondi](https://github.com/brian23-eng)**
 
@@ -34,6 +34,10 @@ Other users can give feedback to the pitch posts by commenting, liking or dislik
 | Uploading a photo | Click on the choose file button and choose file | The page will be refreshed with the profile photo updated |
 | Editing the bio | Click on the ```edit bio``` button and enter your bio  | Redirects the page back to the profile page with an updated bio |
 
+
+## Live link
+
+https://pitch13.herokuapp.com
 
 ## Set-up and Installation
 
